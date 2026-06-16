@@ -1,0 +1,15 @@
+
+[Desktop Entry]
+
+Version=1.0
+
+Type=Application
+
+Name=Clamshell ON
+
+Exec=sh -c "if pkexec sed -i 's/^HandleLidSwitch=.*/HandleLidSwitch=ignore/;s/^HandleLidSwitchExternalPower=.*/HandleLidSwitchExternalPower=ignore/;s/^HandleLidSwitchDocked=.*/HandleLidSwitchDocked=ignore/' /etc/systemd/logind.conf; then notify-send 'Clamshell Mode' 'ONに設定しました。再起動します。'; pkexec systemctl reboot; else notify-send 'Clamshell Mode' 'ONへの設定に失敗しました'; fi"
+
+Terminal=false
+
+Icon=computer
+
